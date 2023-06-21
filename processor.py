@@ -1,9 +1,10 @@
 import json
 import os.path
 from os import path
-import datetime
+from datetime import datetime
 
-
+# Основные методы программы
+# dtwithoutseconds = dt.replace(second=0, microsecond=0)
 all_data = []
 note_id = 1
 file_base = "My_notes.json"
@@ -35,7 +36,7 @@ def save_note():
 
 def add_new_note():
     global note_id
-    curent_date = str(datetime.now())
+    curent_date = str(datetime.now().replace(microsecond=0))
     title = input("Enter a title:\n")
     massage = input("Enter a message:\n")
     temp_note = {"id": note_id, "title": title, "message": massage, "time":curent_date}
@@ -50,7 +51,7 @@ def change_note():
         if choice != -1:
             title = input("Change a title:\n")
             massage = input("Change a message:\n")
-            curent_date = str(datetime.now())
+            curent_date = str(datetime.now().replace(microsecond=0))
             temp_note = {"id": choice + 1, "title": title, "message": massage, "time":curent_date}
             all_data.remove(all_data[choice])
             all_data.insert(choice, temp_note)

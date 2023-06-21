@@ -1,5 +1,7 @@
 import processor
 
+# Метод меню программы
+
 def main_menu():
     play = True
     while play:
